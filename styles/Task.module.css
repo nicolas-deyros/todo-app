@@ -1,0 +1,48 @@
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+  border-radius: 20px;
+  background-color: var(--menu-bg-color);
+  margin: .5rem 0;
+  height: 60px;
+}
+
+.task__status {
+  margin: 0 .5rem;
+}
+
+.task__description {
+  width: 90%;
+}
+
+.task__edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  color: var(--h5-color);
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: white;
+}
+
+.check:hover {
+  color: green;
+}
+
+.trash:hover {
+  color: red;
+}
+
+.task__done {
+  color: var(--h5-color);
+}
+
+.task__done p {
+  text-decoration: line-through;
+}

@@ -1,0 +1,14 @@
+.about__main {
+  display: grid;
+  place-items: center;
+}
+
+.about__page {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  color: var(--footer-link__hover-color);
+  line-height: 1.5;
+  padding: 2rem;
+  margin: 2rem;
+}
