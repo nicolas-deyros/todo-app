@@ -20,7 +20,6 @@ export default function Header() {
 	const [showMenu, setShowMenu] = useState(false);
 	const [showSearch, setShowSearch] = useState(false);
 	const [showIcon, setShowIcon] = useState(true);
-	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<header className={styles.header}>
@@ -72,22 +71,27 @@ export default function Header() {
 					</div>
 
 					<nav className={styles.header__nav__sidebar}>
-						<a href='./'>
-							<FontAwesomeIcon icon={faHome} />
-							&nbsp; Home
-						</a>
-						<a href='./login.html'>
-							<FontAwesomeIcon icon={faArrowRightToBracket} /> &nbsp; Login
-						</a>
-						<a onClick={() => setShowModal(true)}>
-							<FontAwesomeIcon icon={faCirclePlus} /> &nbsp; Add Task
-						</a>
-						<a href='#'>
-							<FontAwesomeIcon icon={faList} /> &nbsp; Categories
-						</a>
-						<a href='./about.html'>
-							<FontAwesomeIcon icon={faCircleInfo} /> &nbsp; About
-						</a>
+						<Link href='/'>
+							<a>
+								<FontAwesomeIcon icon={faHome} />
+								&nbsp; Home
+							</a>
+						</Link>
+						<Link href='/login'>
+							<a>
+								<FontAwesomeIcon icon={faArrowRightToBracket} /> &nbsp; Login
+							</a>
+						</Link>
+						<Link href='#'>
+							<a>
+								<FontAwesomeIcon icon={faCirclePlus} /> &nbsp; Add Task
+							</a>
+						</Link>
+						<Link href='/about'>
+							<a>
+								<FontAwesomeIcon icon={faCircleInfo} /> &nbsp; About
+							</a>
+						</Link>
 					</nav>
 				</div>
 			) : null}

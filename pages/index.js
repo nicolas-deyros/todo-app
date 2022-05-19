@@ -3,7 +3,6 @@ import Layout from '@/components/Layout';
 import { fetcher } from '@/lib/api';
 import Task from '@/components/Task';
 import AddTask from '@/components/AddTask';
-import { API_URL } from '@/config/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '@/styles/Home.module.css';
 
@@ -67,7 +66,7 @@ export default function HomePage({ tasks }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetcher(`${API_URL}/tasks`);
+	const res = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/tasks?sort[0]=id%3Adesc`);
 	return {
 		props: {
 			tasks: res,

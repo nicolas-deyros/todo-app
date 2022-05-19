@@ -1,7 +1,5 @@
 import { useState } from 'react';
-// import { useRouter } from 'next/router';
-import { API_URL } from '@/config/index';
-import { fetcher } from '@/lib/api';
+import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +18,7 @@ export default function AddTask() {
 		// date: '',
 	});
 
-	// const router = useRouter();
+	const router = useRouter();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -39,7 +37,7 @@ export default function AddTask() {
 			});
 		} else {
 			try {
-				const res = await fetch(`${API_URL}/tasks`, {
+				const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/tasks`, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -63,6 +61,10 @@ export default function AddTask() {
 					draggable: true,
 					progress: undefined,
 				});
+
+				router.reload();
+
+				setShowModal(false);
 			} catch (error) {
 				toast.error(error, {
 					position: 'bottom-center',
