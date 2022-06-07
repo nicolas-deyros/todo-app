@@ -1,3 +1,6 @@
+import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faSquareCheck, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
@@ -17,6 +20,42 @@ const variants = {
 };
 
 export default function Task({ tasks }) {
+	const router = useRouter();
+
+	const deleteTask = async (e) => {
+		if (confirm('100% Sure to delete?')) {
+			try {
+				const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/tasks/${e}`, {
+					method: 'DELETE',
+				});
+
+				const data = await res.json();
+
+				toast.success('Task deleted', {
+					position: 'bottom-center',
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+
+				router.reload();
+			} catch (error) {
+				toast.error(error, {
+					position: 'bottom-center',
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+			}
+		}
+	};
+
 	return (
 		<>
 			{tasks &&
@@ -43,8 +82,15 @@ export default function Task({ tasks }) {
 							<div className={styles.task__edit}>
 								<FontAwesomeIcon className={styles.edit} icon={faPenToSquare} title='Edit Task' />
 								<FontAwesomeIcon className={styles.check} icon={faSquareCheck} title='Check Task' />
-								<FontAwesomeIcon className={styles.trash} icon={faTrashCan} title='Delete Task' />
+								<FontAwesomeIcon
+									className={styles.trash}
+									icon={faTrashCan}
+									id={task.id}
+									onClick={() => deleteTask(task.id)}
+									title='Delete Task'
+								/>
 							</div>
+							<ToastContainer />
 						</motion.div>
 					);
 				})}

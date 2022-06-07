@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTasks } from '@/contexts/taskContext';
 import Link from 'next/link';
 import styles from '@/styles/Header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,7 +18,8 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { motion } from 'framer-motion';
 
 export default function Header() {
-	const [showMenu, setShowMenu] = useState(false);
+	const { showModal, setShowModal } = useTasks();
+	const { showMenu, setShowMenu } = useTasks();
 	const [showSearch, setShowSearch] = useState(false);
 	const [showIcon, setShowIcon] = useState(true);
 
@@ -25,13 +27,24 @@ export default function Header() {
 		<header className={styles.header}>
 			<nav className={styles.header__nav}>
 				<div className={styles.header__left}>
-					<FontAwesomeIcon icon={faBars} size='2x' onClick={() => setShowMenu(true)} />
+					<a>
+						<FontAwesomeIcon
+							icon={faBars}
+							size='2x'
+							onClick={() => [setShowMenu(true), setShowSearch(false), setShowIcon(true)]}
+						/>
+					</a>
 				</div>
 				<div className={styles.header__right}>
 					{showSearch ? (
 						<div className={styles.header__search}>
 							<div className={styles.header__search_submit}>
-								<input type='text' id='search' className={styles.search} />
+								<input
+									type='text'
+									id='search'
+									className={styles.search}
+									placeholder='Insert your query'
+								/>
 								<button className={styles.header__search_submit__btn}>
 									<FontAwesomeIcon icon={faMagnifyingGlass} />
 								</button>
@@ -39,7 +52,7 @@ export default function Header() {
 							<FontAwesomeIcon
 								icon={faXmark}
 								size='2x'
-								onClick={() => [setShowSearch(false), setShowIcon(true)]}
+								onClick={() => [setShowSearch(false), setShowIcon(true), setShowMenu(false)]}
 							/>
 						</div>
 					) : null}
@@ -47,7 +60,7 @@ export default function Header() {
 						<FontAwesomeIcon
 							icon={faMagnifyingGlass}
 							size='2x'
-							onClick={() => [setShowSearch(true), setShowIcon(false)]}
+							onClick={() => [setShowSearch(true), setShowIcon(false), setShowMenu(false)]}
 						/>
 					) : null}
 					<FontAwesomeIcon icon={faBell} size='2x' />
@@ -56,7 +69,7 @@ export default function Header() {
 			{showMenu ? (
 				<div className={styles.sidenav}>
 					<FontAwesomeIcon
-						onClick={() => setShowMenu(false)}
+						onClick={() => [setShowMenu(false), setShowSearch(false), setShowIcon(true)]}
 						icon={faCircleChevronLeft}
 						className={styles.sidenav__close}
 						size='3x'
@@ -72,23 +85,23 @@ export default function Header() {
 
 					<nav className={styles.header__nav__sidebar}>
 						<Link href='/'>
-							<a>
+							<a onClick={() => setShowMenu(false)}>
 								<FontAwesomeIcon icon={faHome} />
 								&nbsp; Home
 							</a>
 						</Link>
 						<Link href='/login'>
-							<a>
+							<a onClick={() => setShowMenu(false)}>
 								<FontAwesomeIcon icon={faArrowRightToBracket} /> &nbsp; Login
 							</a>
 						</Link>
-						<Link href='#'>
-							<a>
+						<Link href='/'>
+							<a onClick={() => [setShowModal(true), setShowMenu(false)]}>
 								<FontAwesomeIcon icon={faCirclePlus} /> &nbsp; Add Task
 							</a>
 						</Link>
 						<Link href='/about'>
-							<a>
+							<a onClick={() => setShowMenu(false)}>
 								<FontAwesomeIcon icon={faCircleInfo} /> &nbsp; About
 							</a>
 						</Link>

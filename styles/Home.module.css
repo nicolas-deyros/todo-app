@@ -1,28 +1,11 @@
+
 .categories__list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
-
-.category {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--menu-bg-color);
-  border-radius: 10px;
-  height: 100px;
-  padding: 1rem;
-  margin: .5rem;
-}
-
-.task__number {
-  color: var(--body-bg-color);
-}
-
-.category__business {
-  accent-color: var(--category-business-color);
-}
+/* 
 
 .task {
   display: flex;
@@ -81,4 +64,4 @@ i.category__business {
 
 i.category__personal {
   color: var(--category-personal-color);
-}
+} */

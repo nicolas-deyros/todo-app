@@ -347,8 +347,10 @@ main {
 }
 
 main {
-  height: calc(100vh - 140px);
-  overflow: hidden;
+  /* height: calc(100vh - 140px);
+  overflow: hidden; */
+  min-height: calc(100vh - 140px);
+  padding-bottom: 1rem;
   border-radius: 0 0 10px 10px;
   position: relative;
 }

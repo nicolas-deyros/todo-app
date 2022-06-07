@@ -1,0 +1,18 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--menu-bg-color);
+  border-radius: 10px;
+  height: 100px;
+  padding: 1rem;
+  margin: .5rem;
+}
+
+.task__number {
+  color: var(--body-bg-color);
+}
+
+.category__business {
+  accent-color: var(--category-business-color);
+}

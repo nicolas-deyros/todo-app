@@ -77,6 +77,11 @@
   cursor: text;
 }
 
+.search::placeholder {
+  color: #fff;
+  font-weight: 600;
+}
+
 .header__nav__sidebar {
   flex-direction: column;
 }

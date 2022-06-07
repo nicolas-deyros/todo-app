@@ -5,7 +5,6 @@ export default function Footer() {
 	return (
 		<footer>
 			<ul>
-				<li></li>
 				<li>Version 1.0.0</li>
 			</ul>
 		</footer>

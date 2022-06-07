@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useTasks } from '@/contexts/taskContext';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +12,8 @@ import styles from '@/styles/AddTask.module.css';
 import Modal from '@/components/Modal';
 
 export default function AddTask() {
-	const [showModal, setShowModal] = useState(false);
+	const { showModal, setShowModal } = useTasks();
+	const { showMenu, setShowMenu } = useTasks();
 
 	const [values, setValues] = useState({
 		task: '',
@@ -132,12 +135,11 @@ export default function AddTask() {
 					</button>
 				</form>
 			</Modal>
-
-			<a onClick={() => setShowModal(true)}>
-				<div className={styles.add}>
+			<Link href='#'>
+				<a className={styles.add} onClick={() => [setShowModal(true), setShowMenu(false)]}>
 					<FontAwesomeIcon icon={faPlus} size='2x' title='Add Task' />
-				</div>
-			</a>
+				</a>
+			</Link>
 			<ToastContainer />
 		</section>
 	);
