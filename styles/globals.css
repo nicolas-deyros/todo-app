@@ -9,7 +9,6 @@ note: |
 category: file
 */
 
-
 /* @docs
 label: Box Sizing
 
@@ -21,9 +20,10 @@ category: global
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-
 
 /* @docs
 label: Line Sizing
@@ -38,9 +38,8 @@ links:
 category: global
 */
 html {
-  line-sizing: normal;
+	line-sizing: normal;
 }
-
 
 /* @docs
 label: Body Margins
@@ -51,9 +50,8 @@ note: |
 category: global
 */
 body {
-  margin: 0;
+	margin: 0;
 }
-
 
 /* @docs
 label: Hidden Attribute
@@ -64,9 +62,8 @@ note: |
   category: global
 */
 [hidden] {
-  display: none;
+	display: none;
 }
-
 
 /* @docs
 label: Heading Sizes
@@ -77,29 +74,28 @@ note: |
 category: typography
 */
 h1 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.17rem;
+	font-size: 1.17rem;
 }
 
 h4 {
-  font-size: 1.00rem;
+	font-size: 1rem;
 }
 
 h5 {
-  font-size: 0.83rem;
+	font-size: 0.83rem;
 }
 
 h6 {
-  font-size: 0.67rem;
+	font-size: 0.67rem;
 }
-
 
 /* @docs
 label: H1 Margins
@@ -110,9 +106,8 @@ note: |
 category: typography
 */
 h1 {
-  margin: 0;
+	margin: 0;
 }
-
 
 /* @docs
 label: Pre Wrapping
@@ -123,9 +118,8 @@ note: |
 category: typography
 */
 pre {
-  white-space: pre-wrap;
+	white-space: pre-wrap;
 }
-
 
 /* @docs
 label: Horizontal Rule
@@ -138,13 +132,12 @@ note: |
 category: typography
 */
 hr {
-  border-style: solid;
-  border-width: 1px 0 0;
-  color: inherit;
-  height: 0;
-  overflow: visible;
+	border-style: solid;
+	border-width: 1px 0 0;
+	color: inherit;
+	height: 0;
+	overflow: visible;
 }
-
 
 /* @docs
 label: Responsive Embeds
@@ -165,15 +158,14 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
-  vertical-align: middle;
-  max-width: 100%;
+	display: block;
+	vertical-align: middle;
+	max-width: 100%;
 }
 
 audio:not([controls]) {
-  display: none;
+	display: none;
 }
-
 
 /* @docs
 label: Responsive Images
@@ -189,13 +181,12 @@ note: |
 category: embedded elements
 */
 picture {
-  display: contents;
+	display: contents;
 }
 
 source {
-  display: none;
+	display: none;
 }
-
 
 /* @docs
 label: Aspect Ratios
@@ -212,9 +203,8 @@ img,
 svg,
 video,
 canvas {
-  height: auto;
+	height: auto;
 }
-
 
 /* @docs
 label: Audio Width
@@ -226,7 +216,7 @@ note: |
 category: embedded elements
 */
 audio {
-  width: 100%;
+	width: 100%;
 }
 
 /* @docs
@@ -238,9 +228,8 @@ note: |
 category: legacy browsers
 */
 img {
-  border-style: none;
+	border-style: none;
 }
-
 
 /* @docs
 label: SVG Overflow
@@ -251,9 +240,8 @@ note: |
 category: legacy browsers
 */
 svg {
-  overflow: hidden;
+	overflow: hidden;
 }
-
 
 /* @docs
 label: HTML5 Elements
@@ -278,9 +266,8 @@ hgroup,
 main,
 nav,
 section {
-  display: block;
+	display: block;
 }
-
 
 /* @docs
 label: Checkbox & Radio Inputs
@@ -293,8 +280,8 @@ category: legacy browsers
 */
 [type='checkbox'],
 [type='radio'] {
-  box-sizing: border-box;
-  padding: 0;
+	box-sizing: border-box;
+	padding: 0;
 }
 
 /* @docs
@@ -307,103 +294,84 @@ category: app code
 */
 
 a {
-  text-decoration: none;
-  cursor: pointer;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 :root {
-  --body-bg-color: #98b5ff;
-  --main-bg-color: #344fa1;
-  --menu-bg-color: #031956;
-  --text-color: white;
-  --h5-color: #5b77c7;
-  --category-business-color: #d103fc;
-  --category-personal-color: #2f7ef2;
-  --category-label-color: #4c5e9a;
-  --footer-link-color: var(--h5-color);
-  --footer-link__hover-color: var(--menu-bg-color);
+	--body-bg-color: #98b5ff;
+	--main-bg-color: #344fa1;
+	--menu-bg-color: #031956;
+	--text-color: white;
+	--h5-color: #5b77c7;
+	--category-business-color: #d103fc;
+	--category-personal-color: #2f7ef2;
+	--category-label-color: #4c5e9a;
+	--footer-link-color: var(--h5-color);
+	--footer-link__hover-color: var(--menu-bg-color);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-  background-color: var(--body-bg-color);
-  color: var(--text-color);
-  font-family: 'Nunito',
-    sans-serif;
+	background-color: var(--body-bg-color);
+	color: var(--text-color);
+	font-family: 'Nunito', sans-serif;
 }
 
 header,
 main,
 footer {
-  width: clamp(80%, 550px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
+	width: clamp(80%, 550px, 95%);
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 header,
 main {
-  background-color: var(--main-bg-color);
+	background-color: var(--main-bg-color);
 }
 
 main {
-  /* height: calc(100vh - 140px);
+	/* height: calc(100vh - 140px);
   overflow: hidden; */
-  min-height: calc(100vh - 140px);
-  padding-bottom: 1rem;
-  border-radius: 0 0 10px 10px;
-  position: relative;
+	min-height: calc(100vh - 140px);
+	padding-bottom: 1rem;
+	border-radius: 0 0 10px 10px;
+	position: relative;
 }
 
 h5 {
-  text-transform: uppercase;
-  color: var(--body-bg-color);
+	text-transform: uppercase;
+	color: var(--body-bg-color);
 }
-
 
 footer {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--footer-link-color);
-  padding: 0;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	color: var(--footer-link-color);
 }
 
-footer>ul {
-  list-style: none;
-  display: flex;
-  gap: .1rem;
-  width: 100%;
-  justify-content: space-evenly;
-  padding: 0;
+footer > ul {
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 footer a {
-  color: var(--footer-link-color);
+	color: var(--footer-link-color);
 }
 
 footer a:hover {
-  color: var(--footer-link__hover-color);
-  font-weight: bold;
+	color: var(--footer-link__hover-color);
+	font-weight: bold;
 }
 
-
-
 @media screen and (max-width: 1024px) {
-
-  input,
-  .form__buttons__add {
-    width: 100%;
-  }
-
-  footer {
-    height: 70px;
-  }
-
-  footer>ul {
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-  }
+	input,
+	.form__buttons__add {
+		width: 100%;
+	}
 }

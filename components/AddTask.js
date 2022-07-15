@@ -19,6 +19,7 @@ export default function AddTask() {
 		task: '',
 		category: '',
 		// date: '',
+		status: false,
 	});
 
 	const router = useRouter();
@@ -97,7 +98,7 @@ export default function AddTask() {
 					title='Close'
 					size='3x'
 				/>
-				<form className={styles.form__add_task} onSubmit={handleSubmit} autocomplete='on'>
+				<form className={styles.form__add_task} onSubmit={handleSubmit}>
 					<h1 className={styles.form__heading}>
 						<FontAwesomeIcon icon={faCirclePlus} title='Edit Task' />
 						&nbsp; Add Task

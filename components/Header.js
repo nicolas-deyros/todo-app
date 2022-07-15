@@ -100,11 +100,11 @@ export default function Header() {
 								<FontAwesomeIcon icon={faCirclePlus} /> &nbsp; Add Task
 							</a>
 						</Link>
-						<Link href='/about'>
+						{/* <Link href='/about'>
 							<a onClick={() => setShowMenu(false)}>
 								<FontAwesomeIcon icon={faCircleInfo} /> &nbsp; About
 							</a>
-						</Link>
+						</Link> */}
 					</nav>
 				</div>
 			) : null}

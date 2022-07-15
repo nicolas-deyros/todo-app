@@ -1,48 +1,82 @@
-
 .task {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: .5rem;
-  border-radius: 20px;
-  background-color: var(--menu-bg-color);
-  margin: .5rem 0;
-  height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem;
+	border-radius: 20px;
+	background-color: var(--menu-bg-color);
+	margin: 0.5rem 0;
+	height: 60px;
+}
+
+.task__completed {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem;
+	border-radius: 20px;
+	background-color: #ccc;
+	margin: 0.5rem 0;
+	height: 60px;
+}
+
+.task__completed p {
+	color: #eee;
+}
+
+.task__completed p::after {
+	content: '✔ Task Completed';
+	margin-left: 0.5rem;
+	color: green;
 }
 
 .task__status {
-  margin: 0 .5rem;
+	margin: 0 0.5rem;
 }
 
 .task__description {
-  width: 90%;
+	width: 90%;
+	text-transform: capitalize;
 }
 
 .task__edit {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .5rem;
-  color: var(--h5-color);
-  cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	color: var(--h5-color);
+	cursor: pointer;
 }
 
 .edit:hover {
-  color: white;
+	color: white;
 }
 
 .check:hover {
-  color: green;
+	color: green;
 }
 
 .trash:hover {
-  color: red;
+	color: red;
 }
 
 .task__done {
-  color: var(--h5-color);
+	color: var(--h5-color);
 }
 
 .task__done p {
-  text-decoration: line-through;
+	text-decoration: line-through;
+}
+
+.hidden {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.task__description {
+		width: 70%;
+	}
+	.task__status {
+		display: none;
+	}
 }

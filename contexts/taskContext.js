@@ -10,9 +10,10 @@ export const useTasks = () => {
 export const TaskProvider = ({ children }) => {
 	const [showModal, setShowModal] = useState(false);
 	const [showMenu, setShowMenu] = useState(false);
+	
 
 	return (
-		<TaskContext.Provider value={{ showModal, setShowModal, showMenu, setShowMenu }}>
+		<TaskContext.Provider value={{ showModal, setShowModal, showMenu, setShowMenu}}>
 			{children}
 		</TaskContext.Provider>
 	);

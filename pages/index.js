@@ -12,16 +12,16 @@ export default function HomePage({ tasks, categories }) {
 
 	return (
 		<Layout>
-			<section>
-				<h1>What's up, Username!</h1>
+			{/* <section>
 				<div className={styles.categories__component}>
 					<h5>categories</h5>
 					<div className={styles.categories__list}>
 						<Categories tasks={tasks} />
 					</div>
 				</div>
-			</section>
+			</section> */}
 			<section>
+				<h1>What's up, Username!</h1>
 				<div className={styles.todo__list}>
 					<h5>today's tasks</h5>
 					<Task tasks={tasks} categories={categories} />
